@@ -18,7 +18,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CID = "glc_fcs30d"
 OUT = f"{REPO}/catalog/{CID}"
 PUBLIC = "https://data.source.coop/portolan-mirrors/glc-fcs30d"
-REPO_URL = "https://github.com/nlebovits/glc-fcs30d"
+REPO_URL = "https://github.com/portolan-mirrors/glc-fcs30d"
 COG = "image/tiff; application=geotiff; profile=cloud-optimized"
 EXT = {
     "portolan": "https://schemas.portolan-sdi.org/portolan/v0.3.0/schema.json",

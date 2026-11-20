@@ -31,7 +31,7 @@ The published documentation is [catalog/README.md](catalog/README.md) and
 
 ## Report a problem
 
-Open an issue at <https://github.com/nlebovits/glc-fcs30d/issues>.
+Open an issue at <https://github.com/portolan-mirrors/glc-fcs30d/issues>.
 
 ## License
 

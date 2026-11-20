@@ -39,7 +39,7 @@
         "processor",
         "host"
       ],
-      "url": "https://github.com/nlebovits/glc-fcs30d"
+      "url": "https://github.com/portolan-mirrors/glc-fcs30d"
     }
   ],
   "extent": {
@@ -808,13 +808,13 @@
     },
     {
       "rel": "vcs",
-      "href": "https://github.com/nlebovits/glc-fcs30d",
+      "href": "https://github.com/portolan-mirrors/glc-fcs30d",
       "type": "text/html",
       "title": "Source repository"
     },
     {
       "rel": "issues",
-      "href": "https://github.com/nlebovits/glc-fcs30d/issues",
+      "href": "https://github.com/portolan-mirrors/glc-fcs30d/issues",
       "type": "text/html",
       "title": "Report a problem"
     },

@@ -78,7 +78,7 @@ fc is fractional cover.
 
 ## How this mirror was made
 
-`tools/pipeline.py` in the [source repository](https://github.com/nlebovits/glc-fcs30d) reads each tile's two GeoTIFFs out of the Zenodo ZIPs with HTTP range requests. It then writes each band as its own COG: ZSTD compression, 512-pixel blocks, mode-resampled overviews, and the guide's colors as the color table. The pixel values are not changed. Each COG's size and SHA-256 checksum are recorded in its item. The `source-*` assets of the collection link the original ZIPs, with their MD5 checksums from Zenodo.
+`tools/pipeline.py` in the [source repository](https://github.com/portolan-mirrors/glc-fcs30d) reads each tile's two GeoTIFFs out of the Zenodo ZIPs with HTTP range requests. It then writes each band as its own COG: ZSTD compression, 512-pixel blocks, mode-resampled overviews, and the guide's colors as the color table. The pixel values are not changed. Each COG's size and SHA-256 checksum are recorded in its item. The `source-*` assets of the collection link the original ZIPs, with their MD5 checksums from Zenodo.
 
 ## License and citation
 
@@ -88,4 +88,4 @@ fc is fractional cover.
 
 The user guide adds: "If you plan to use our data in a scientific analysis paper, we strongly recommend contacting us in advance to seek opinions and consider our contributions in the acknowledgments or as co-authors." The guide gives the contact as liuly@radi.ac.cn.
 
-Report a problem with this mirror at <https://github.com/nlebovits/glc-fcs30d/issues>.
+Report a problem with this mirror at <https://github.com/portolan-mirrors/glc-fcs30d/issues>.

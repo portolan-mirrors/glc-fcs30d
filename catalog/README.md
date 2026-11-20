@@ -15,7 +15,7 @@ One collection, [`glc_fcs30d`](./glc_fcs30d/README.md):
 
 ## Provenance
 
-This is a mirror, not the official publication. The upstream is the Zenodo record [doi:10.5281/zenodo.15063683](https://doi.org/10.5281/zenodo.15063683), version v2 of 2025-03-21. The mirror was synced once. The `updated` field on this catalog records the time of that sync. The pixel values are unchanged. Only the file layout changed: one COG per tile and year, instead of one multi-year GeoTIFF per tile inside 36 ZIP files. The tools and the metadata are in <https://github.com/nlebovits/glc-fcs30d>.
+This is a mirror, not the official publication. The upstream is the Zenodo record [doi:10.5281/zenodo.15063683](https://doi.org/10.5281/zenodo.15063683), version v2 of 2025-03-21. The mirror was synced once. The `updated` field on this catalog records the time of that sync. The pixel values are unchanged. Only the file layout changed: one COG per tile and year, instead of one multi-year GeoTIFF per tile inside 36 ZIP files. The tools and the metadata are in <https://github.com/portolan-mirrors/glc-fcs30d>.
 
 ## Access
 
