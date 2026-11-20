@@ -1,0 +1,984 @@
+{
+  "type": "Collection",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.3.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
+  ],
+  "id": "glc_fcs30d",
+  "title": "GLC_FCS30D global 30 m land cover, 1985–2022",
+  "description": "Global land cover at 30 m with 35 classes, from GLC_FCS30D v2 by the Aerospace Information Research Institute, Chinese Academy of Sciences. There is one map for each of 1985, 1990 and 1995, and one map for each year from 2000 to 2022. Each map is 961 tiles of 5° by 5°, and each tile is one item with a single-band Cloud Optimized GeoTIFF of class values with an embedded color table. The items are grouped by year, then by 10° longitude band. Search them all at once with the items.parquet asset.",
+  "keywords": [
+    "land cover",
+    "land use",
+    "land cover change",
+    "Landsat",
+    "30 m",
+    "global",
+    "time series",
+    "classification"
+  ],
+  "license": "CC-BY-4.0",
+  "providers": [
+    {
+      "name": "Aerospace Information Research Institute, Chinese Academy of Sciences",
+      "description": "Produced GLC_FCS30D (Liangyun Liu, Xiao Zhang and Zhehua Li) and publishes it on Zenodo.",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://doi.org/10.5281/zenodo.15063683"
+    },
+    {
+      "name": "Portolan Mirrors",
+      "description": "Maintains this mirror: split each multi-year GeoTIFF into one COG per year and tile, and wrote the STAC metadata, item mirror and documentation.",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://github.com/nlebovits/glc-fcs30d"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.0,
+          -60.000202534,
+          180.0,
+          80.0
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1985-01-01T00:00:00Z",
+          "2022-12-31T23:59:59Z"
+        ]
+      ]
+    }
+  },
+  "item_assets": {
+    "data": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "Land cover (COG)",
+      "roles": [
+        "data"
+      ],
+      "nodata": 0,
+      "data_type": "uint8",
+      "proj:code": "EPSG:4326",
+      "classification:classes": [
+        {
+          "value": 0,
+          "name": "no-data",
+          "title": "No data (filled value)",
+          "color_hint": "000000",
+          "nodata": true
+        },
+        {
+          "value": 10,
+          "name": "rainfed-cropland",
+          "title": "Rainfed cropland",
+          "color_hint": "FFFF64"
+        },
+        {
+          "value": 11,
+          "name": "herbaceous-cover-cropland",
+          "title": "Herbaceous cover cropland",
+          "color_hint": "FFFF64"
+        },
+        {
+          "value": 12,
+          "name": "tree-or-shrub-cover-cropland",
+          "title": "Tree or shrub cover (Orchard) cropland",
+          "color_hint": "FFFF00"
+        },
+        {
+          "value": 20,
+          "name": "irrigated-cropland",
+          "title": "Irrigated cropland",
+          "color_hint": "AAF0F0"
+        },
+        {
+          "value": 51,
+          "name": "open-evergreen-broadleaved-forest",
+          "title": "Open evergreen broadleaved forest",
+          "color_hint": "4C7300"
+        },
+        {
+          "value": 52,
+          "name": "closed-evergreen-broadleaved-forest",
+          "title": "Closed evergreen broadleaved forest",
+          "color_hint": "006400"
+        },
+        {
+          "value": 61,
+          "name": "open-deciduous-broadleaved-forest",
+          "title": "Open deciduous broadleaved forest (0.15<fc<0.4)",
+          "color_hint": "AAC800"
+        },
+        {
+          "value": 62,
+          "name": "closed-deciduous-broadleaved-forest",
+          "title": "Closed deciduous broadleaved forest (fc>0.4)",
+          "color_hint": "00A000"
+        },
+        {
+          "value": 71,
+          "name": "open-evergreen-needle-leaved-forest",
+          "title": "Open evergreen needle-leaved forest (0.15< fc <0.4)",
+          "color_hint": "005000"
+        },
+        {
+          "value": 72,
+          "name": "closed-evergreen-needle-leaved-forest",
+          "title": "Closed evergreen needle-leaved forest (fc >0.4)",
+          "color_hint": "003C00"
+        },
+        {
+          "value": 81,
+          "name": "open-deciduous-needle-leaved-forest",
+          "title": "Open deciduous needle-leaved forest (0.15< fc <0.4)",
+          "color_hint": "286400"
+        },
+        {
+          "value": 82,
+          "name": "closed-deciduous-needle-leaved-forest",
+          "title": "Closed deciduous needle-leaved forest (fc >0.4)",
+          "color_hint": "285000"
+        },
+        {
+          "value": 91,
+          "name": "open-mixed-leaf-forest",
+          "title": "Open mixed leaf forest (broadleaved and needle-leaved)",
+          "color_hint": "A0B432"
+        },
+        {
+          "value": 92,
+          "name": "closed-mixed-leaf-forest",
+          "title": "Closed mixed leaf forest (broadleaved and needle-leaved)",
+          "color_hint": "788200"
+        },
+        {
+          "value": 120,
+          "name": "shrubland",
+          "title": "Shrubland",
+          "color_hint": "966400"
+        },
+        {
+          "value": 121,
+          "name": "evergreen-shrubland",
+          "title": "Evergreen shrubland",
+          "color_hint": "964B00"
+        },
+        {
+          "value": 122,
+          "name": "deciduous-shrubland",
+          "title": "Deciduous shrubland",
+          "color_hint": "966400"
+        },
+        {
+          "value": 130,
+          "name": "grassland",
+          "title": "Grassland",
+          "color_hint": "FFB432"
+        },
+        {
+          "value": 140,
+          "name": "lichens-and-mosses",
+          "title": "Lichens and mosses",
+          "color_hint": "FFDCD2"
+        },
+        {
+          "value": 150,
+          "name": "sparse-vegetation",
+          "title": "Sparse vegetation (fc<0.15)",
+          "color_hint": "FFEBAF"
+        },
+        {
+          "value": 152,
+          "name": "sparse-shrubland",
+          "title": "Sparse shrubland (fc<0.15)",
+          "color_hint": "FFD278"
+        },
+        {
+          "value": 153,
+          "name": "sparse-herbaceous",
+          "title": "Sparse herbaceous (fc<0.15)",
+          "color_hint": "FFEBAF"
+        },
+        {
+          "value": 181,
+          "name": "swamp",
+          "title": "Swamp",
+          "color_hint": "00A884"
+        },
+        {
+          "value": 182,
+          "name": "marsh",
+          "title": "Marsh",
+          "color_hint": "73FFDF"
+        },
+        {
+          "value": 183,
+          "name": "flooded-flat",
+          "title": "Flooded flat",
+          "color_hint": "9EBBD7"
+        },
+        {
+          "value": 184,
+          "name": "saline",
+          "title": "Saline",
+          "color_hint": "828282"
+        },
+        {
+          "value": 185,
+          "name": "mangrove",
+          "title": "Mangrove",
+          "color_hint": "F57AB6"
+        },
+        {
+          "value": 186,
+          "name": "salt-marsh",
+          "title": "Salt marsh",
+          "color_hint": "66CDAB"
+        },
+        {
+          "value": 187,
+          "name": "tidal-flat",
+          "title": "Tidal flat",
+          "color_hint": "444F89"
+        },
+        {
+          "value": 190,
+          "name": "impervious-surfaces",
+          "title": "Impervious surfaces",
+          "color_hint": "C31400"
+        },
+        {
+          "value": 200,
+          "name": "bare-areas",
+          "title": "Bare areas",
+          "color_hint": "FFF5D7"
+        },
+        {
+          "value": 201,
+          "name": "consolidated-bare-areas",
+          "title": "Consolidated bare areas",
+          "color_hint": "DCDCDC"
+        },
+        {
+          "value": 202,
+          "name": "unconsolidated-bare-areas",
+          "title": "Unconsolidated bare areas",
+          "color_hint": "FFF5D7"
+        },
+        {
+          "value": 210,
+          "name": "water-body",
+          "title": "Water body",
+          "color_hint": "0046C8"
+        },
+        {
+          "value": 220,
+          "name": "permanent-ice-and-snow",
+          "title": "Permanent ice and snow",
+          "color_hint": "FFFFFF"
+        },
+        {
+          "value": 250,
+          "name": "filled-value",
+          "title": "Filled value",
+          "color_hint": "FFFFFF"
+        }
+      ]
+    }
+  },
+  "assets": {
+    "geoparquet-items": {
+      "href": "./items.parquet",
+      "type": "application/vnd.apache.parquet",
+      "roles": [
+        "collection-mirror"
+      ],
+      "title": "All items as stac-geoparquet",
+      "description": "A stac-geoparquet copy of the 24986 items of this collection, one row for each item, in Hilbert order of the item bbox.",
+      "file:size": 3657823,
+      "file:checksum": "12206d5253152a309f8d997eb6e3e5596e5d8a114e8d6988cfb6c0622575a2b8f221"
+    },
+    "legend-lyr": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_legend.lyr/content",
+      "file:size": 15872,
+      "file:checksum": "d501100c0f27bfb1197f830193532bf69d06a0",
+      "type": "application/octet-stream",
+      "roles": [
+        "metadata"
+      ],
+      "title": "GLC_FCS30D legend (ArcGIS layer file)",
+      "description": "The producer's ArcGIS legend for the class values. The COGs carry the same colors in their color tables."
+    },
+    "overview": {
+      "href": "./overview-2022.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "visual",
+        "overview"
+      ],
+      "title": "Land cover 2022, whole world (COG)",
+      "description": "All 961 tiles of 2022 in one 8-bit RGBA image in Web Mercator (EPSG:3857) at about 2.4 km, in the class colors. Made from the tiles' internal overviews with mode resampling, so it is for display only.",
+      "proj:code": "EPSG:3857",
+      "start_datetime": "2022-01-01T00:00:00Z",
+      "end_datetime": "2022-12-31T23:59:59Z",
+      "file:size": 17057995,
+      "file:checksum": "1220b7a281a455207c3459c97557891898c9573b6b6850109ed82dfa364376dcb33c"
+    },
+    "source-E0-E5": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E0-E5.zip/content",
+      "file:size": 3559030174,
+      "file:checksum": "d50110a80c54e3a29b38c4c5abe8d197d5cebe",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E0-E5 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E0-E5: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E10-E15": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E10-E15.zip/content",
+      "file:size": 6085669414,
+      "file:checksum": "d5011076e8db8155ec47444f203cd6e1fc8f21",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E10-E15 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E10-E15: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E100-E105": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E100-E105.zip/content",
+      "file:size": 6392836301,
+      "file:checksum": "d5011022e02aaca7d6396d96e95f2c5f945d4f",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E100-E105 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E100-E105: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E110-E115": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E110-E115.zip/content",
+      "file:size": 6066118786,
+      "file:checksum": "d5011072bf2826c1a089a58fd8f212e86c4fcf",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E110-E115 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E110-E115: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E120-E125": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E120-E125.zip/content",
+      "file:size": 5363602229,
+      "file:checksum": "d50110ad9ac504218335975016e91108a5919c",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E120-E125 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E120-E125: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E130-E135": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E130-E135.zip/content",
+      "file:size": 4785310944,
+      "file:checksum": "d50110c86a62d9f2e4de393fcd53e5e73fdf8a",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E130-E135 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E130-E135: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E140-E145": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E140-E145.zip/content",
+      "file:size": 5071736454,
+      "file:checksum": "d5011084323c44d61e3be721d873f6b75573ca",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E140-E145 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E140-E145: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E150-E155": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E150-E155.zip/content",
+      "file:size": 1421113407,
+      "file:checksum": "d501103edfe60efeb761845bb7ab35715132a0",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E150-E155 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E150-E155: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E160-E165": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E160-E165.zip/content",
+      "file:size": 801343411,
+      "file:checksum": "d5011038abb61d7002d67b268816c983b2b3d4",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E160-E165 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E160-E165: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E170-E175": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E170-E175.zip/content",
+      "file:size": 779501674,
+      "file:checksum": "d50110a3427e4cf8588d526674e4552fa31510",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E170-E175 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E170-E175: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E20-E25": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E20-E25.zip/content",
+      "file:size": 7098960676,
+      "file:checksum": "d50110a30e7828a0417f3a8d09d2aceb41651e",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E20-E25 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E20-E25: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E30-E35": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E30-E35.zip/content",
+      "file:size": 7695422426,
+      "file:checksum": "d50110fccb2b8bfadf48fc9241c20e95b53a72",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E30-E35 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E30-E35: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E40-E45": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E40-E45.zip/content",
+      "file:size": 5458749712,
+      "file:checksum": "d501108f511b173abd1fa7ff40d363541e55a4",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E40-E45 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E40-E45: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E50-E55": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E50-E55.zip/content",
+      "file:size": 3958018257,
+      "file:checksum": "d5011090dde0de6347444fc8e60d1d7f89523a",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E50-E55 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E50-E55: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E60-E65": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E60-E65.zip/content",
+      "file:size": 5306602104,
+      "file:checksum": "d501107da0ada04d4ffe55ec38bafa010269b3",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E60-E65 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E60-E65: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E70-E75": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E70-E75.zip/content",
+      "file:size": 6293668051,
+      "file:checksum": "d501103601c57c0859796d20a5fd048d692dfe",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E70-E75 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E70-E75: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E80-E85": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E80-E85.zip/content",
+      "file:size": 5062883252,
+      "file:checksum": "d50110508de68da5acf3bd2c60db91c5dccf30",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E80-E85 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E80-E85: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-E90-E95": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_E90-E95.zip/content",
+      "file:size": 4789310844,
+      "file:checksum": "d50110a632f7acf5209cc3ed4a653066739d08",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP E90-E95 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band E90-E95: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W105-W110": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W105-W110.zip/content",
+      "file:size": 5132570143,
+      "file:checksum": "d50110bf9306ef2187602f7ccb5f9033e65aae",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W105-W110 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W105-W110: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W115-W120": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W115-W120.zip/content",
+      "file:size": 4303173836,
+      "file:checksum": "d501102dde39c91d7af90cc0d1bd14b5aae29e",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W115-W120 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W115-W120: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W125-W130": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W125-W130.zip/content",
+      "file:size": 2266000320,
+      "file:checksum": "d501100dc6fb93c140863afd2813086d84c910",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W125-W130 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W125-W130: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W135-W140": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W135-W140.zip/content",
+      "file:size": 855913347,
+      "file:checksum": "d50110e45e41e777785990daa4c43d7f646005",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W135-W140 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W135-W140: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W145-W150": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W145-W150.zip/content",
+      "file:size": 867907817,
+      "file:checksum": "d5011029d47ea3e85966df4fa08779699067a7",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W145-W150 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W145-W150: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W15-W20": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W15-W20.zip/content",
+      "file:size": 814966683,
+      "file:checksum": "d50110acd644cfcfa4686d88a54be19684b325",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W15-W20 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W15-W20: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W155-W160": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W155-W160.zip/content",
+      "file:size": 903661023,
+      "file:checksum": "d50110bc38e676946794349296c69ec324771a",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W155-W160 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W155-W160: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W165-W170": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W165-W170.zip/content",
+      "file:size": 434197861,
+      "file:checksum": "d5011032227521c7d3b5f937109eea06689131",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W165-W170 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W165-W170: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W175-W180": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W175-W180.zip/content",
+      "file:size": 178031961,
+      "file:checksum": "d50110c56c040e8119eb88f9db17aceab768fe",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W175-W180 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W175-W180: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W25-W30": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W25-W30.zip/content",
+      "file:size": 450464105,
+      "file:checksum": "d50110b0b967c8caa04d9f7cc3abd9a8cfe0c7",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W25-W30 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W25-W30: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W35-W40": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W35-W40.zip/content",
+      "file:size": 703367927,
+      "file:checksum": "d501101587cb26edfd832b25b49ff0a5492c59",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W35-W40 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W35-W40: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W45-W50": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W45-W50.zip/content",
+      "file:size": 3516023427,
+      "file:checksum": "d5011053bdc867e4f95645681c1078f2604029",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W45-W50 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W45-W50: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W5-W10": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W5-W10.zip/content",
+      "file:size": 3247168963,
+      "file:checksum": "d50110286db2a35a17feffd797e1dc0bd57604",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W5-W10 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W5-W10: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W55-W60": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W55-W60.zip/content",
+      "file:size": 5019557235,
+      "file:checksum": "d50110f2b919e1e19b577e921a0744de327d4e",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W55-W60 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W55-W60: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W65-W70": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W65-W70.zip/content",
+      "file:size": 5596943746,
+      "file:checksum": "d50110f2e77d6543cdcc1077d0837b9a76d06a",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W65-W70 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W65-W70: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W75-W80": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W75-W80.zip/content",
+      "file:size": 5252447057,
+      "file:checksum": "d501109bfb098fee803d6d8e30c2617de4ead3",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W75-W80 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W75-W80: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W85-W90": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W85-W90.zip/content",
+      "file:size": 4470295404,
+      "file:checksum": "d50110a768ca6b86a88a4a028dcc7c452018d3",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W85-W90 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W85-W90: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "source-W95-W100": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D_19852022maps_W95-W100.zip/content",
+      "file:size": 5812117245,
+      "file:checksum": "d5011019b08eeeb260411e6085eedbc9fd623e",
+      "type": "application/zip",
+      "roles": [
+        "source"
+      ],
+      "title": "Source ZIP W95-W100 (GeoTIFFs, all years)",
+      "description": "The upstream ZIP of the GeoTIFFs for the tiles in band W95-W100: one 3-band file for 1985, 1990 and 1995 and one 23-band file for 2000–2022 per tile."
+    },
+    "thumbnail": {
+      "href": "./thumbnail.png",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Land cover 2022 preview",
+      "description": "The 2022 overview from 60°S to about 84°N, 900 by 600 pixels, with no basemap.",
+      "file:size": 123453,
+      "file:checksum": "1220dd06754fcf3bcec8adb8d038b922b5073adffa502aafc8b32909d5e463269e94"
+    },
+    "user-guide": {
+      "href": "https://zenodo.org/api/records/15063683/files/GLC_FCS30D%20UserGuides.pdf/content",
+      "file:size": 427072,
+      "file:checksum": "d5011025cfd070e8a38ab0e534da939e99856f",
+      "type": "application/pdf",
+      "roles": [
+        "metadata"
+      ],
+      "title": "GLC_FCS30D user guide (PDF)",
+      "description": "The producer's user guide: the class table, the colors, the tile naming and the file layout."
+    }
+  },
+  "sci:doi": "10.5194/essd-16-1353-2024",
+  "sci:citation": "Zhang, X., Zhao, T., Xu, H., Liu, W., Wang, J., Chen, X., & Liu, L., 2024. GLC_FCS30D: The first global 30-m land-cover dynamic monitoring product with a fine classification system from 1985 to 2022 using dense time-series Landsat imagery and continuous change-detection method. Earth Syst. Sci. Data, 16, 1353–1381, https://doi.org/10.5194/essd-16-1353-2024.",
+  "updated": "2026-11-20T17:05:25Z",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/",
+      "type": "text/html",
+      "title": "Creative Commons Attribution 4.0 International"
+    },
+    {
+      "rel": "via",
+      "href": "https://doi.org/10.5281/zenodo.15063683",
+      "type": "text/html",
+      "title": "GLC_FCS30D v2 on Zenodo"
+    },
+    {
+      "rel": "cite-as",
+      "href": "https://doi.org/10.5194/essd-16-1353-2024",
+      "type": "text/html",
+      "title": "GLC_FCS30D paper (ESSD, 2024)"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "README"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent guide"
+    },
+    {
+      "rel": "alternate",
+      "href": "https://browser.portolan-sdi.org/#/external/data.source.coop/portolan-mirrors/glc-fcs30d/glc_fcs30d/collection.json",
+      "type": "text/html",
+      "title": "Open in the data browser"
+    },
+    {
+      "rel": "vcs",
+      "href": "https://github.com/nlebovits/glc-fcs30d",
+      "type": "text/html",
+      "title": "Source repository"
+    },
+    {
+      "rel": "issues",
+      "href": "https://github.com/nlebovits/glc-fcs30d/issues",
+      "type": "text/html",
+      "title": "Report a problem"
+    },
+    {
+      "rel": "about",
+      "href": "https://source.coop/portolan-mirrors/glc-fcs30d",
+      "type": "text/html",
+      "title": "Hosting page on Source Cooperative"
+    },
+    {
+      "rel": "child",
+      "href": "./1985/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 1985"
+    },
+    {
+      "rel": "child",
+      "href": "./1990/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 1990"
+    },
+    {
+      "rel": "child",
+      "href": "./1995/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 1995"
+    },
+    {
+      "rel": "child",
+      "href": "./2000/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2000"
+    },
+    {
+      "rel": "child",
+      "href": "./2001/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2001"
+    },
+    {
+      "rel": "child",
+      "href": "./2002/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2002"
+    },
+    {
+      "rel": "child",
+      "href": "./2003/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2003"
+    },
+    {
+      "rel": "child",
+      "href": "./2004/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2004"
+    },
+    {
+      "rel": "child",
+      "href": "./2005/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2005"
+    },
+    {
+      "rel": "child",
+      "href": "./2006/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2006"
+    },
+    {
+      "rel": "child",
+      "href": "./2007/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2007"
+    },
+    {
+      "rel": "child",
+      "href": "./2008/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2008"
+    },
+    {
+      "rel": "child",
+      "href": "./2009/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2009"
+    },
+    {
+      "rel": "child",
+      "href": "./2010/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2010"
+    },
+    {
+      "rel": "child",
+      "href": "./2011/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2011"
+    },
+    {
+      "rel": "child",
+      "href": "./2012/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2012"
+    },
+    {
+      "rel": "child",
+      "href": "./2013/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2013"
+    },
+    {
+      "rel": "child",
+      "href": "./2014/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2014"
+    },
+    {
+      "rel": "child",
+      "href": "./2015/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2015"
+    },
+    {
+      "rel": "child",
+      "href": "./2016/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2016"
+    },
+    {
+      "rel": "child",
+      "href": "./2017/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2017"
+    },
+    {
+      "rel": "child",
+      "href": "./2018/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2018"
+    },
+    {
+      "rel": "child",
+      "href": "./2019/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2019"
+    },
+    {
+      "rel": "child",
+      "href": "./2020/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2020"
+    },
+    {
+      "rel": "child",
+      "href": "./2021/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2021"
+    },
+    {
+      "rel": "child",
+      "href": "./2022/catalog.json",
+      "type": "application/json",
+      "title": "Land cover 2022"
+    }
+  ]
+}

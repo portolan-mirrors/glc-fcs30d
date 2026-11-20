@@ -2,12 +2,17 @@
   "type": "Catalog",
   "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+    "https://schemas.portolan-sdi.org/portolan/v0.3.0/schema.json"
   ],
-  "id": "example-catalog",
-  "title": "Example Catalog",
-  "description": "TODO(setup): one or two sentences saying what this catalog holds, who produced the data, and who it is for. A person and an agent both read this first.",
+  "id": "glc-fcs30d",
+  "title": "GLC_FCS30D: Global 30 m Land Cover Dynamics, 1985–2022",
+  "description": "A cloud-native mirror of [GLC_FCS30D v2](https://doi.org/10.5281/zenodo.15063683), a global 30 m land cover time series with 35 classes, produced by Liangyun Liu, Xiao Zhang and Zhehua Li at the Aerospace Information Research Institute, Chinese Academy of Sciences. It has one map every 5 years from 1985 to 1995 and one map each year from 2000 to 2022, as Cloud Optimized GeoTIFFs with embedded class colors, one for each 5° tile and year. Agents start at [AGENTS.md](AGENTS.md).",
   "links": [
+    {
+      "rel": "self",
+      "href": "https://data.source.coop/portolan-mirrors/glc-fcs30d/catalog.json",
+      "type": "application/json"
+    },
     {
       "rel": "root",
       "href": "./catalog.json",
@@ -26,14 +31,35 @@
       "title": "Catalog agent guide"
     },
     {
+      "rel": "alternate",
+      "href": "https://browser.portolan-sdi.org/#/external/data.source.coop/portolan-mirrors/glc-fcs30d/catalog.json",
+      "type": "text/html",
+      "title": "Open in the data browser"
+    },
+    {
       "rel": "vcs",
-      "href": "https://github.com/TODO(setup)",
+      "href": "https://github.com/nlebovits/glc-fcs30d",
+      "type": "text/html",
       "title": "Source repository"
     },
     {
       "rel": "issues",
-      "href": "https://github.com/TODO(setup)/issues",
-      "title": "Issue tracker"
+      "href": "https://github.com/nlebovits/glc-fcs30d/issues",
+      "type": "text/html",
+      "title": "Report a problem"
+    },
+    {
+      "rel": "about",
+      "href": "https://source.coop/portolan-mirrors/glc-fcs30d",
+      "type": "text/html",
+      "title": "Hosting page on Source Cooperative"
+    },
+    {
+      "rel": "child",
+      "href": "./glc_fcs30d/collection.json",
+      "type": "application/json",
+      "title": "GLC_FCS30D global 30 m land cover, 1985–2022"
     }
-  ]
+  ],
+  "updated": "2026-11-20T17:05:25Z"
 }

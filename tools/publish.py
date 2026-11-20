@@ -65,7 +65,7 @@ CONTENT_TYPES = {
     ".jpeg": "image/jpeg",
     ".webp": "image/webp",
     ".svg": "image/svg+xml",
-    ".tif": "image/tiff; application=geotiff",
+    ".tif": "image/tiff; application=geotiff; profile=cloud-optimized",  # every .tif here is a COG
     ".tiff": "image/tiff; application=geotiff",
     ".laz": "application/vnd.laszip",
     ".xml": "application/xml",

@@ -1,37 +1,28 @@
-# AGENTS.md — Example Catalog
+# AGENTS.md — GLC_FCS30D mirror
 
-Guidance for AI agents and automated clients working with this catalog.
-
-**One rule survives every edit to this file.** Every claim here is either quoted
-from a source or measured from the data. If you cannot point at where a fact
-came from, it does not belong in this file. An agent acting on an invented join
-key or an invented column name produces a confident wrong answer, and nothing
-downstream catches it.
+Guidance for AI agents and automated clients working with this catalog. Every claim here is quoted from the producer's user guide or measured from the published files.
 
 ## What this catalog holds
 
-TODO(setup): the collections, and what each one covers. Name the public root
-URL so a client that arrived here by another route can orient itself.
+The root is `https://data.source.coop/portolan-mirrors/glc-fcs30d/catalog.json`. It holds one collection, `glc_fcs30d`: global land cover at 30 m in 35 classes. There are 24,986 single-band COGs, one for each 5° tile (961) and year (1985, 1990, 1995, 2000–2022). Each COG is one STAC item.
 
 ## How to read it
 
-TODO(setup): one worked query per format you publish, each one run against the
-published files before it was written down.
+Find tiles with the item mirror, `https://data.source.coop/portolan-mirrors/glc-fcs30d/glc_fcs30d/items.parquet`. Filter on `bbox.xmin`, `bbox.ymin`, `bbox.xmax`, `bbox.ymax` and `start_datetime`, and read `assets.data.href`. Then read pixels with GDAL from `/vsicurl/<href>`. The [collection agent guide](./glc_fcs30d/AGENTS.md) has a tested query.
 
 ## Join keys
 
-TODO(setup): the columns that join collections to each other, and their types.
-State which side is unique. If no two collections join, say that instead.
+There is one collection, so nothing joins. Within it, the item `id` is `<year>-<tile>`. The same `<tile>` across years is the same 5° cell on the same pixel grid, so one tile can be compared pixel by pixel across years.
 
 ## Quirks that produce silently wrong answers
 
-TODO(setup): the traps. A projection that is not WGS84, so lengths come out in
-feet. A column whose name differs from the one the source documentation uses. A
-category field with inconsistent casing. A geometry column that GDAL names
-`geometry_bbox` where the query you copied says `bbox`. These are the entries
-that earn this file, so write them as you find them.
+- **Open ocean is class 210, water body, not nodata.**
+- **The grid is EPSG:4326**, with pixels of 0.000269494585236°. Pixel area falls with the cosine of latitude.
+- **Adjacent tiles overlap by 0.75 pixel.** Summed per-tile counts double-count the edges.
+- **Before 2000, maps are every 5 years only.**
+
+The [collection agent guide](./glc_fcs30d/AGENTS.md) explains each of these.
 
 ## Structure
 
-Assets and structural links resolve relative to the object that carries them.
-Catalogs here carry no `self` link, so a client tracks its own location.
+The root catalog carries an absolute `self` link. Structural links are relative. Each item's data asset `href` is an absolute https URL, so rows in `items.parquet` resolve on their own.

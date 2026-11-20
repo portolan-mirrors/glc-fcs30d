@@ -1,0 +1,39 @@
+{
+  "geoparquet-items": {
+    "href": "./items.parquet",
+    "type": "application/vnd.apache.parquet",
+    "roles": [
+      "collection-mirror"
+    ],
+    "title": "All items as stac-geoparquet",
+    "description": "A stac-geoparquet copy of the 24986 items of this collection, one row for each item, in Hilbert order of the item bbox.",
+    "file:size": 3657823,
+    "file:checksum": "12206d5253152a309f8d997eb6e3e5596e5d8a114e8d6988cfb6c0622575a2b8f221"
+  },
+  "overview": {
+    "href": "./overview-2022.tif",
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "roles": [
+      "visual",
+      "overview"
+    ],
+    "title": "Land cover 2022, whole world (COG)",
+    "description": "All 961 tiles of 2022 in one 8-bit RGBA image in Web Mercator (EPSG:3857) at about 2.4 km, in the class colors. Made from the tiles' internal overviews with mode resampling, so it is for display only.",
+    "proj:code": "EPSG:3857",
+    "start_datetime": "2022-01-01T00:00:00Z",
+    "end_datetime": "2022-12-31T23:59:59Z",
+    "file:size": 17057995,
+    "file:checksum": "1220b7a281a455207c3459c97557891898c9573b6b6850109ed82dfa364376dcb33c"
+  },
+  "thumbnail": {
+    "href": "./thumbnail.png",
+    "type": "image/png",
+    "roles": [
+      "thumbnail"
+    ],
+    "title": "Land cover 2022 preview",
+    "description": "The 2022 overview from 60\u00b0S to about 84\u00b0N, 900 by 600 pixels, with no basemap.",
+    "file:size": 123453,
+    "file:checksum": "1220dd06754fcf3bcec8adb8d038b922b5073adffa502aafc8b32909d5e463269e94"
+  }
+}

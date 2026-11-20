@@ -30,23 +30,33 @@ One canonical home per fact. If a value like a color, URL, or policy line exists
 
 ## This Repository
 
-A template for a git-backed Portolan catalog. Repositories created from it
-inherit everything here, so a mistake in this file propagates.
+The git-backed metadata and tools for the Portolan mirror of GLC_FCS30D, published at
+<https://data.source.coop/portolan-mirrors/glc-fcs30d/catalog.json>.
 
 ### The publish boundary
 
 `catalog/` is the published catalog. Everything in it is published, and
 nothing outside it ever is. Do not move a file into `catalog/` to make it
 publish, and do not add a path outside `publish_dir` to `tools/publish.py`.
-The boundary is the only thing standing between a scratch file and a public
-bucket, and it holds because it is structural rather than a list of
-exclusions.
+
+### What is generated, and from what
+
+- `tools/pipeline.py` converted and uploaded the 24,986 COGs. It wrote one JSON line
+  per COG; those lines are committed as `data/cogs.jsonl`.
+- `tools/build_stac.py` writes `catalog/glc_fcs30d/collection.json`, the `updated`
+  field of `catalog/catalog.json`, and the gitignored item tree
+  (`catalog/glc_fcs30d/<year>/`) from `data/cogs.jsonl`, `data/zenodo-record.json`
+  and `data/derived-assets.json`. Never hand-edit a generated file; change the
+  generator or its inputs. CI regenerates the tree and fails on any diff.
+- `tools/items_parquet.py` and `tools/overview.py` write the item mirror, the
+  overview COG and the thumbnail, and record their file fields in
+  `data/derived-assets.json`. Rerun `tools/build_stac.py` after either.
+- The class table lives once, in `tools/classes.py`.
 
 ### Data never enters git
 
-Never commit a GeoParquet, COG, PMTiles, Zarr, or COPC file. If a gate needs
-bytes to check, generate them in CI. Git keeps every version of a binary
-forever and deleting it later reclaims nothing.
+Never commit a GeoParquet or COG file. The thumbnail PNG is the one binary in
+`catalog/`, because the link gate needs it on disk.
 
 ### The conformance allow-list
 
@@ -59,16 +69,3 @@ fires, why it is accepted, and the issue tracking its removal.
 Every claim in a `catalog/**/AGENTS.md` is either quoted from a source or
 measured from the data. An invented join key or column name produces a
 confident wrong answer that nothing downstream catches.
-
-### The links back to this repository
-
-`catalog/catalog.json` ships a `vcs` link and an `issues` link. Both hrefs are
-setup placeholders, so `tests/test_setup.py` catches a half-edited repository.
-The Portolan spec recommends these two links for a git-backed catalog. See
-[git-backed catalogs](https://github.com/portolan-sdi/portolan-spec/blob/main/specs/best-practices/git-backed-catalogs.md),
-which merged in August 2026.
-
-Keep both hrefs absolute. The repository sits outside the published catalog,
-so a relative href resolves against the public base URL. Each placeholder
-holds a `://`, because `tests/test_links.py` treats an href without one as a
-path and looks for it on disk.
